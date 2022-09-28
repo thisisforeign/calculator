@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    background-image: url("pictures/table.jpg");
+}
+
+#calculator {
+    width: 320px;
+    height: 520px;
+    background-color: #45525b;
+    margin-top: 250px;
+    box-shadow: 5px 10px 30px;
+}
+
+#screen{
+    background-color: #899a77;
+    height: 120px;
+    text-align: right;
+}
+
+button{
+    background-color: black;
+    color: white;
+}
+
+.casioColor{
+    color: black;
+    background-color: #d17456;
+}
