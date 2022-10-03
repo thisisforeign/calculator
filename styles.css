@@ -1,16 +1,27 @@
 body{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
     background-image: url("pictures/table.jpg");
 }
 
+#logo{
+    font-family: sans-serif;
+    color: #c0c0ca;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 12px 10px 5px 30px;
+}
+
 #calculator {
-    width: 320px;
-    height: 520px;
-    background-color: #45525b;
-    margin-top: 250px;
+    width: 485px;
+    height: 630px;
+    background-color: #20212b;
+    margin-top: 230px;
     box-shadow: 5px 10px 30px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 4em;
+    border-bottom-right-radius: 4em;
 }
 
 #screen{
@@ -18,6 +29,9 @@ body{
     height: 120px;
     padding: 10px;
     font-size: 20px;
+    border-radius: 6px;
+    margin-left: 23px;
+    margin-right: 23px;
 }
 
 #equation{
@@ -29,19 +43,70 @@ body{
     margin-top: 75px;
 }
 
+#purpleContainer{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.purple {
+    background-color: #6150a1;
+    width: 70px;
+}
+
+.purple.left {
+    border-top-left-radius: 4em;
+    border-bottom-left-radius: 4em;
+    transform: rotate(5deg);
+}
+
+.purple.right{
+    border-top-right-radius: 4em;
+    border-bottom-right-radius: 4em;
+    transform: rotate(-5deg);
+}
+
+#middle {
+    color: #52428b;
+    border-radius: 50%;
+    width: 125px;
+    height: 90px;
+}
+
+.inner{
+    margin: 18px -2px 10px 8px;
+}
+
+.outer{
+    margin: 3px -2px 10px 8px;
+}
+
+#buttonContainer{
+    margin: 10px 20px 10px 20px;
+}
+
 button{
-    background-color: black;
+    background-color: #272731;
     color: white;
-    width: 50px;
+    border-top-left-radius: .6em;
+    border-top-right-radius: .6em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-color: #000000;
+    width: 75px;
     height: 50px;
-    margin: 15px;
+    margin: 10px 2px 10px 10px;
     float: left;
-    border-width: 0;
     font-weight: bold;
     font-size: 20px;
 }
 
+#buttons{
+    display: flex;
+    flex-direction: column;
+}
+
 .casioColor{
     color: black;
-    background-color: #d17456;
+    background-color: #e98d4c;
 }
