@@ -13,6 +13,7 @@ body{
 }
 
 #calculator {
+    flex: none; 
     width: 485px;
     height: 630px;
     background-color: #20212b;
@@ -86,6 +87,7 @@ body{
 }
 
 button{
+    cursor: pointer;
     background-color: #272731;
     color: white;
     border-top-left-radius: .6em;
