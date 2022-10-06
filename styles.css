@@ -26,22 +26,28 @@ body{
 }
 
 #screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     background-color: #899a77;
     height: 120px;
     padding: 10px;
-    font-size: 20px;
     border-radius: 6px;
     margin-left: 23px;
     margin-right: 23px;
-}
-
-#equation{
-
-}
-
-#result {
     text-align: right;
-    margin-top: 75px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#prevNum{
+    font-size: 40px;
+}
+
+#currNum {
+    font-size: 50px;
+    margin-top: 20px;
 }
 
 #purpleContainer{
@@ -82,8 +88,8 @@ body{
     margin: 3px -2px 10px 8px;
 }
 
-#buttonContainer{
-    margin: 10px 20px 10px 20px;
+.buttonContainer{
+    margin: 10px 20px 10px 18px;
 }
 
 button{
