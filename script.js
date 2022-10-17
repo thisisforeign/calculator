@@ -11,17 +11,35 @@ let prevNum = '';
 let operator = '';
 
 function equationDisplay(num){
+  if(prevNum !== "" && currNum != "" && operator === ""){
+    prevNum = "";
+    currDisplayNum.textContent = currNum;
+  }
     currNum += num;
     currDisplayNum.textContent = currNum;
 }
 
 function savedOperator(op) {
-    operator = op;
+  if(prevNum === ""){
     prevNum = currNum;
+    updateOperator(op);
+  }
+  else if(currNum === ""){
+    updateOperator(op);
+  }
+  else{
+    calculate();
+    operator = op;
+    currDisplayNum.textContent = "0";
     prevDisplayNum.textContent = prevNum + operator;
+  }
+}
 
-    currNum = "";
-    currDisplayNum.textContent = "";
+function updateOperator(op){
+  operator = op;
+  prevDisplayNum.textContent = prevNum + operator;
+  currDisplayNum.textContent = "0";
+  currNum = "";
 }
 
 function calculate(){
@@ -39,8 +57,10 @@ function calculate(){
       } else if (operator === "÷") {
         prevNum /= currNum;
       }
-      prevDisplayNum.textContent = "";
       currDisplayNum.textContent = prevNum;
+      prevDisplayNum.textContent = "";
+      operator = "";
+      currNum = "";
 }
 
 function ac(){
