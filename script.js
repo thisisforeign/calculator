@@ -5,6 +5,7 @@ const numBtn = document.querySelectorAll('.numeric');
 const operBtn = document.querySelectorAll('.operator');
 const equalBtn = document.querySelector('.equal');
 const clearBtn = document.querySelector('.clear');
+const decimalBtn = document.querySelector('.decimal')
 
 let currNum = '';
 let prevNum = '';
@@ -72,6 +73,12 @@ function ac(){
   prevDisplayNum.textContent = "";
 }
 
+function addDecimal(){
+  if(!currNum.includes('.')){
+    currNum += "."
+    currDisplayNum.textContent = currNum;
+  }
+}
 
 numBtn.forEach((btn) => {
     btn.addEventListener('click', event => {
@@ -98,3 +105,4 @@ equalBtn.addEventListener('click', () => {
 });
 
 clearBtn.addEventListener('click', ac);
+decimalBtn.addEventListener('click', addDecimal)
