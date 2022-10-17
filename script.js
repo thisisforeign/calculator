@@ -4,6 +4,7 @@ const currDisplayNum = document.querySelector('#currNum');
 const numBtn = document.querySelectorAll('.numeric');
 const operBtn = document.querySelectorAll('.operator');
 const equalBtn = document.querySelector('.equal');
+const clearBtn = document.querySelector('.clear');
 
 let currNum = '';
 let prevNum = '';
@@ -14,7 +15,8 @@ function equationDisplay(num){
     currDisplayNum.textContent = currNum;
 }
 
-function saved(operator) {
+function savedOperator(op) {
+    operator = op;
     prevNum = currNum;
     prevDisplayNum.textContent = prevNum + operator;
 
@@ -22,20 +24,33 @@ function saved(operator) {
     currDisplayNum.textContent = "";
 }
 
-// function calculate(num){
-//     num1 = Number(num1);
-//     currEquation = Number(currEquation);
+function calculate(){
+    prevNum = Number(prevNum);
+    currNum = Number(currNum);
+    console.log(prevNum)
+    console.log(currNum)
+    console.log(operator)
+    if (operator === "+") {
+        prevNum += currNum;
+      } else if (operator === "-") {
+        prevNum -= currNum;
+      } else if (operator === "x") {
+        prevNum *= currNum;
+      } else if (operator === "÷") {
+        prevNum /= currNum;
+      }
+      prevDisplayNum.textContent = "";
+      currDisplayNum.textContent = prevNum;
+}
 
-//     if (operator === "+") {
-//         num1 + num2;
-//       } else if (operator === "-") {
-//         return num1 - num2;
-//       } else if (operator === "*") {
-//         return num1 * num2;
-//       } else if (operator === "/") {
-//         return num1 / num2;
-//       }
-// }
+function ac(){
+  console.log("here")
+  currNum = "";
+  prevNum = "";
+  operator = "";
+  currDisplayNum.textContent = "0";
+  prevDisplayNum.textContent = "";
+}
 
 
 numBtn.forEach((btn) => {
@@ -52,8 +67,14 @@ operBtn.forEach((btn) => {
         if(!event.target.closest('button')) return; //when pressing inbetween buttons, will select the buttonContainer so this will disable it
         const key = event.target;
     
-        saved(key.innerText)
+        savedOperator(key.innerText)
     });
 });
 
-equalBtn.addEventListener('click', calculate);
+equalBtn.addEventListener('click', () => {
+  if(currNum != "" && prevNum != ""){
+    calculate();
+  }
+});
+
+clearBtn.addEventListener('click', ac);
