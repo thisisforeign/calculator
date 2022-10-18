@@ -35,10 +35,17 @@ function savedOperator(op) {
 }
 
 function updateOperator(op) {
-  operator = op;
-  prevDisplayNum.textContent = prevNum + " " + operator;
-  currDisplayNum.textContent = "0";
-  currNum = "";
+  if (prevNum === "") {
+    operator = op;
+    prevDisplayNum.textContent = "0 " + operator;
+    currDisplayNum.textContent = "0";
+    currNum = "";
+  } else {
+    operator = op;
+    prevDisplayNum.textContent = prevNum + " " + operator;
+    currDisplayNum.textContent = "0";
+    currNum = "";
+  }
 }
 
 function calculate() {
