@@ -32,13 +32,13 @@ function savedOperator(op) {
     calculate();
     operator = op;
     currDisplayNum.textContent = "0";
-    prevDisplayNum.textContent = prevNum + operator;
+    prevDisplayNum.textContent = prevNum + " " + operator;
   }
 }
 
 function updateOperator(op){
   operator = op;
-  prevDisplayNum.textContent = prevNum + operator;
+  prevDisplayNum.textContent = prevNum + " " + operator;
   currDisplayNum.textContent = "0";
   currNum = "";
 }
@@ -80,6 +80,25 @@ function addDecimal(){
   }
 }
 
+function keyPress(e){
+  console.log(e.key)
+  if(e.key >= 0){
+    equationDisplay(e.key)
+  }
+  else if(e.key === 'Enter' || e.key === '='){
+    calculate();
+  }
+  else if(e.key === '+' || e.key === '-'){
+    savedOperator(e.key);
+  }
+  else if(e.key === '*'){
+    savedOperator('x');
+  }
+  else if(e.key === '/'){
+    savedOperator('÷');
+  }
+}
+
 numBtn.forEach((btn) => {
     btn.addEventListener('click', event => {
         if(!event.target.closest('button')) return; //when pressing inbetween buttons, will select the buttonContainer so this will disable it
@@ -106,3 +125,4 @@ equalBtn.addEventListener('click', () => {
 
 clearBtn.addEventListener('click', ac);
 decimalBtn.addEventListener('click', addDecimal)
+window.addEventListener('keydown', keyPress);
