@@ -6,6 +6,7 @@ const operBtn = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal");
 const clearBtn = document.querySelector(".clear");
 const decimalBtn = document.querySelector(".decimal");
+const delBtn = document.querySelector(".del");
 
 let currNum = "";
 let prevNum = "";
@@ -70,7 +71,6 @@ function calculate() {
 }
 
 function ac() {
-  console.log("here");
   currNum = "";
   prevNum = "";
   operator = "";
@@ -85,8 +85,22 @@ function addDecimal() {
   }
 }
 
+function del() {
+  if(currNum !== "") {
+    currNum = currNum.slice(0, -1);
+    currDisplayNum.textContent = currNum;
+    if(currNum === "") {
+      currDisplayNum.textContent = "0";
+    }
+  }
+  if(currNum === "" && prevNum != "" && operator === "") {
+    prevNum = prevNum.slice(0, -1);
+    currDisplayNum.textContent = prevNum;
+  }
+}
+
 function keyPress(e) {
-  console.log(e.code);
+  console.log(e.key);
   if (e.key >= 0) {
     equationDisplay(e.key);
   } else if (e.key === "Enter" || e.key === "=") {
@@ -99,6 +113,10 @@ function keyPress(e) {
     savedOperator("÷");
   } else if (e.key === "."){
     addDecimal();
+  } else if (e.key === "Escape") {
+    ac();
+  } else if (e.key === "Backspace") {
+    del();
   } else if (e.code.includes("Numpad")) {
     let keypadKey = e.code.slice(6);
     if (keypadKey >= 0) {
@@ -145,4 +163,5 @@ equalBtn.addEventListener("click", () => {
 
 clearBtn.addEventListener("click", ac);
 decimalBtn.addEventListener("click", addDecimal);
+delBtn.addEventListener("click", del)
 window.addEventListener("keydown", keyPress);
