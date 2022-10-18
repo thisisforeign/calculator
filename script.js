@@ -97,6 +97,8 @@ function keyPress(e) {
     savedOperator("x");
   } else if (e.key === "/") {
     savedOperator("÷");
+  } else if (e.key === "."){
+    addDecimal();
   } else if (e.code.includes("Numpad")) {
     let keypadKey = e.code.slice(6);
     if (keypadKey >= 0) {
@@ -111,6 +113,8 @@ function keyPress(e) {
       savedOperator("x");
     } else if (keypadKey === "Divide") {
       savedOperator("÷");
+    } else if(keypadKey === "Decimal") {
+      addDecimal();
     }
   }
 }
