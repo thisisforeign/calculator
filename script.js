@@ -134,7 +134,7 @@ operBtn.forEach((btn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-  if (currNum != "" && prevNum != "") {
+  if (currNum != "") {
     calculate();
   }
 });
