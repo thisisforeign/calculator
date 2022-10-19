@@ -86,14 +86,14 @@ function addDecimal() {
 }
 
 function del() {
-  if(currNum !== "") {
+  if (currNum !== "") {
     currNum = currNum.slice(0, -1);
     currDisplayNum.textContent = currNum;
-    if(currNum === "") {
+    if (currNum === "") {
       currDisplayNum.textContent = "0";
     }
   }
-  if(currNum === "" && prevNum != "" && operator === "") {
+  if (currNum === "" && prevNum != "" && operator === "") {
     prevNum = prevNum.slice(0, -1);
     currDisplayNum.textContent = prevNum;
   }
@@ -111,7 +111,7 @@ function keyPress(e) {
     savedOperator("x");
   } else if (e.key === "/") {
     savedOperator("÷");
-  } else if (e.key === "."){
+  } else if (e.key === ".") {
     addDecimal();
   } else if (e.key === "Escape") {
     ac();
@@ -131,7 +131,7 @@ function keyPress(e) {
       savedOperator("x");
     } else if (keypadKey === "Divide") {
       savedOperator("÷");
-    } else if(keypadKey === "Decimal") {
+    } else if (keypadKey === "Decimal") {
       addDecimal();
     }
   }
@@ -163,5 +163,5 @@ equalBtn.addEventListener("click", () => {
 
 clearBtn.addEventListener("click", ac);
 decimalBtn.addEventListener("click", addDecimal);
-delBtn.addEventListener("click", del)
+delBtn.addEventListener("click", del);
 window.addEventListener("keydown", keyPress);

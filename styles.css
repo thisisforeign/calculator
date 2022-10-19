@@ -1,7 +1,10 @@
 body{
     display: flex;
     justify-content: center;
-    background-image: url("pictures/table.jpg");
+    background-image: url("pictures/table.jpg"); /*honestly put this background cause im going for secondary school aesthetics*/
+    background-repeat: no-repeat;  
+    background-position: 0% 0%;
+    background-size: 100% 111%;
 }
 
 #logo{
