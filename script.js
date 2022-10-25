@@ -82,6 +82,7 @@ function addDecimal() {
   if (!currNum.includes(".")) {
     currNum += ".";
     currDisplayNum.textContent = currNum;
+    typingSound();
   }
 }
 
@@ -118,7 +119,6 @@ function keyPress(e) {
     typingSound();
   } else if (e.key === ".") {
     addDecimal();
-    typingSound();
   } else if (e.key === "Escape") {
     ac();
     typingSound();
@@ -147,7 +147,6 @@ function keyPress(e) {
       typingSound();
     } else if (keypadKey === "Decimal") {
       addDecimal();
-      typingSound();
     }
   }
 }
@@ -164,6 +163,7 @@ numBtn.forEach((btn) => {
     const key = event.target;
 
     equationDisplay(key.innerText);
+    typingSound();
   });
 });
 
@@ -173,6 +173,7 @@ operBtn.forEach((btn) => {
     const key = event.target;
 
     savedOperator(key.innerText);
+    typingSound();
   });
 });
 
@@ -180,9 +181,18 @@ equalBtn.addEventListener("click", () => {
   if (currNum != "") {
     calculate();
   }
+  typingSound();
 });
 
-clearBtn.addEventListener("click", ac);
-decimalBtn.addEventListener("click", addDecimal);
-delBtn.addEventListener("click", del);
+clearBtn.addEventListener("click", () => {
+  ac();
+  typingSound();
+});
+decimalBtn.addEventListener("click", () => {
+  addDecimal();
+});
+delBtn.addEventListener("click", () => {
+  del();
+  typingSound();
+});
 window.addEventListener("keydown", keyPress);
