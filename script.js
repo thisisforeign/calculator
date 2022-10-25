@@ -101,40 +101,61 @@ function del() {
 
 function keyPress(e) {
   console.log(e.key);
-  if (e.key >= 0) {
+  if (e.key >= 0 && e.key !== " ") {  //spacebar triggered this too apparently
     equationDisplay(e.key);
+    typingSound();
   } else if (e.key === "Enter" || e.key === "=") {
     calculate();
+    typingSound();
   } else if (e.key === "+" || e.key === "-") {
     savedOperator(e.key);
+    typingSound();
   } else if (e.key === "*") {
     savedOperator("x");
+    typingSound();
   } else if (e.key === "/") {
     savedOperator("÷");
+    typingSound();
   } else if (e.key === ".") {
     addDecimal();
+    typingSound();
   } else if (e.key === "Escape") {
     ac();
+    typingSound();
   } else if (e.key === "Backspace") {
     del();
+    typingSound();
   } else if (e.code.includes("Numpad")) {
     let keypadKey = e.code.slice(6);
     if (keypadKey >= 0) {
       equationDisplay(keypadKey);
+      typingSound();
     } else if (keypadKey === "Enter") {
       calculate();
+      typingSound();
     } else if (keypadKey === "Add") {
       savedOperator("+");
+      typingSound();
     } else if (keypadKey === "Subtract") {
       savedOperator("-");
+      typingSound();
     } else if (keypadKey === "Multiply") {
       savedOperator("x");
+      typingSound();
     } else if (keypadKey === "Divide") {
       savedOperator("÷");
+      typingSound();
     } else if (keypadKey === "Decimal") {
       addDecimal();
+      typingSound();
     }
   }
+}
+
+function typingSound(){
+  const audio = document.querySelector("#audioSound");
+  audio.currentTime = 0;
+  audio.play();
 }
 
 numBtn.forEach((btn) => {
