@@ -22,12 +22,12 @@ function equationDisplay(num) {
 }
 
 function savedOperator(op) {
-  if (prevNum === "") {
+  if (prevNum === "") { //if user types out full equation
     prevNum = currNum;
     updateOperator(op);
-  } else if (currNum === "") {
+  } else if (currNum === "") {  //if user presses = and then operator
     updateOperator(op);
-  } else {
+  } else {  //if user does not press equal and presses operator
     calculate();
     operator = op;
     currDisplayNum.textContent = "0";
@@ -64,10 +64,20 @@ function calculate() {
   } else if (operator === "÷") {
     prevNum /= currNum;
   }
-  currDisplayNum.textContent = prevNum;
-  prevDisplayNum.textContent = "";
-  operator = "";
-  currNum = "";
+
+  if (prevNum === 0 && operator === ""){
+    prevNum = currNum;
+    currDisplayNum.textContent = currNum = prevNum;
+    prevDisplayNum.textContent = "";
+    operator = "";
+    currNum = "";
+  }
+  else if (operator !== ""){
+    currDisplayNum.textContent = prevNum;
+    prevDisplayNum.textContent = "";
+    operator = "";
+    currNum = "";
+  }
 }
 
 function ac() {
