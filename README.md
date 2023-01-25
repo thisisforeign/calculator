@@ -13,3 +13,4 @@ Issues with script.js:
 - Saving both numbers to be used in the equation
 - Had error that occured when using delete function after calculating due to type error so add .toString()
 - Encountered an error that occured when pressing the "Enter" key as the currDisplayNum would show the old currNum but has the new currNum stored. Fixed using e.preventDefault()
+- Decimal equations had too many floating point numbers. Used: https://www.reddit.com/r/learnjavascript/comments/3q0jyy/dealing_with_decimals/
