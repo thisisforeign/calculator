@@ -53,13 +53,13 @@ function calculate() {
   prevNum = Number(prevNum);
   currNum = Number(currNum);
   if (operator === "+") {
-    prevNum += currNum;
+    prevNum = (0 | (prevNum + currNum + .0000000001) * 100) / 100;
   } else if (operator === "-") {
-    prevNum -= currNum;
+    prevNum = (0 | (prevNum - currNum + .0000000001) * 100) / 100;
   } else if (operator === "x") {
-    prevNum *= currNum;
+    prevNum = (0 | (prevNum * currNum + .0000000001) * 100) / 100;
   } else if (operator === "÷") {
-    prevNum /= currNum;
+    prevNum = (0 | (prevNum / currNum + .0000000001) * 100) / 100;
   }
 
   if (prevNum === 0 && operator === ""){
