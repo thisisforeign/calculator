@@ -11,3 +11,4 @@ Issues with script.js:
 - Displaying the chosen numbers
 - Previous num display shifted to the middle of the screen instead of staying at the top when current num display was empty
 - Saving both numbers to be used in the equation
+- Had error that occured when using delete function after calculating due to type error so add .toString()
