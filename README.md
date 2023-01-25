@@ -12,3 +12,4 @@ Issues with script.js:
 - Previous num display shifted to the middle of the screen instead of staying at the top when current num display was empty
 - Saving both numbers to be used in the equation
 - Had error that occured when using delete function after calculating due to type error so add .toString()
+- Encountered an error that occured when pressing the "Enter" key as the currDisplayNum would show the old currNum but has the new currNum stored. Fixed using e.preventDefault()
