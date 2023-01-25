@@ -61,6 +61,7 @@ function calculate() {
     prevNum -= currNum;
   } else if (operator === "x") {
     prevNum *= currNum;
+    console.log(prevNum)
   } else if (operator === "÷") {
     prevNum /= currNum;
   }
@@ -73,10 +74,12 @@ function calculate() {
     currNum = "";
   }
   else if (operator !== ""){
+    console.log(prevNum)
     currDisplayNum.textContent = prevNum;
     prevDisplayNum.textContent = "";
     operator = "";
     currNum = "";
+    console.log("else")
   }
 }
 
@@ -97,6 +100,7 @@ function addDecimal() {
 }
 
 function del() {
+  console.log(prevNum)
   if (currNum !== "") {
     currNum = currNum.slice(0, -1);
     currDisplayNum.textContent = currNum;
@@ -105,13 +109,16 @@ function del() {
     }
   }
   if (currNum === "" && prevNum != "" && operator === "") {
-    prevNum = prevNum.slice(0, -1);
+    prevNum = prevNum.toString().slice(0, -1);
     currDisplayNum.textContent = prevNum;
+    if(prevNum === ""){
+      currDisplayNum.textContent = "0";
+    }
   }
 }
 
 function keyPress(e) {
-  console.log(e.key);
+  console.log(e.key)
   if (e.key >= 0 && e.key !== " ") {  //spacebar triggered this too apparently
     equationDisplay(e.key);
     typingSound();
@@ -179,7 +186,7 @@ numBtn.forEach((btn) => {
 
 operBtn.forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    if (!event.target.closest("button")) return; //when pressing inbetween buttons, will select the buttonContainer so this will disable it
+    if (!event.target.closest("button")) return;
     const key = event.target;
 
     savedOperator(key.innerText);

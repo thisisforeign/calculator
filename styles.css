@@ -5,6 +5,11 @@ body{
     background-repeat: no-repeat;  
     background-position: 0% 0%;
     background-size: 100% 111%;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #logo{
@@ -21,7 +26,6 @@ body{
     height: 630px;
     background-color: #20212b;
     margin-top: 230px;
-    box-shadow: 5px 10px 30px;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
     border-bottom-left-radius: 4em;
