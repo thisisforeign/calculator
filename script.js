@@ -52,16 +52,12 @@ function updateOperator(op) {
 function calculate() {
   prevNum = Number(prevNum);
   currNum = Number(currNum);
-  console.log(prevNum);
-  console.log(currNum);
-  console.log(operator);
   if (operator === "+") {
     prevNum += currNum;
   } else if (operator === "-") {
     prevNum -= currNum;
   } else if (operator === "x") {
     prevNum *= currNum;
-    console.log(prevNum)
   } else if (operator === "÷") {
     prevNum /= currNum;
   }
@@ -74,12 +70,10 @@ function calculate() {
     currNum = "";
   }
   else if (operator !== ""){
-    console.log(prevNum)
     currDisplayNum.textContent = prevNum;
     prevDisplayNum.textContent = "";
     operator = "";
     currNum = "";
-    console.log("else")
   }
 }
 
@@ -100,7 +94,6 @@ function addDecimal() {
 }
 
 function del() {
-  console.log(prevNum)
   if (currNum !== "") {
     currNum = currNum.slice(0, -1);
     currDisplayNum.textContent = currNum;
@@ -118,11 +111,11 @@ function del() {
 }
 
 function keyPress(e) {
-  console.log(e.key)
   if (e.key >= 0 && e.key !== " ") {  //spacebar triggered this too apparently
     equationDisplay(e.key);
     typingSound();
   } else if (e.key === "Enter" || e.key === "=") {
+    e.preventDefault();
     calculate();
     typingSound();
   } else if (e.key === "+" || e.key === "-") {
