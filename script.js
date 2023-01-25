@@ -53,13 +53,29 @@ function calculate() {
   prevNum = Number(prevNum);
   currNum = Number(currNum);
   if (operator === "+") {
-    prevNum = (0 | (prevNum + currNum + .0000000001) * 100) / 100;
+    if(prevNum % 1 != 0 || currNum % 1 != 0){
+      prevNum = bigDecimal.add(prevNum, currNum);
+    }else{
+      prevNum += currNum;
+    }
   } else if (operator === "-") {
-    prevNum = (0 | (prevNum - currNum + .0000000001) * 100) / 100;
+    if(prevNum % 1 != 0 || currNum % 1 != 0){
+      prevNum = bigDecimal.subtract(prevNum, currNum);
+    }else{
+      prevNum -= currNum;
+    }
   } else if (operator === "x") {
-    prevNum = (0 | (prevNum * currNum + .0000000001) * 100) / 100;
+    if(prevNum % 1 != 0 || currNum % 1 != 0){
+      prevNum = bigDecimal.multiply(prevNum, currNum);
+    }else{
+      prevNum *= currNum;
+    }
   } else if (operator === "÷") {
-    prevNum = (0 | (prevNum / currNum + .0000000001) * 100) / 100;
+    if(prevNum % 1 != 0 || currNum % 1 != 0){
+      prevNum = bigDecimal.divide(prevNum, currNum);
+    }else{
+      prevNum /= currNum;
+    }
   }
 
   if (prevNum === 0 && operator === ""){
